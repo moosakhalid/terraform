@@ -14,7 +14,7 @@ resource "aws_security_group" "opsview-sg" {
   }
 
   ingress {
-    cidr_blocks = ["96.237.247.97/32"]
+    cidr_blocks = ["cidr-block"]
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
@@ -22,7 +22,7 @@ resource "aws_security_group" "opsview-sg" {
   }
 
   ingress {
-    cidr_blocks = ["96.237.247.97/32"]
+    cidr_blocks = ["cidr-block"]
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
@@ -30,7 +30,7 @@ resource "aws_security_group" "opsview-sg" {
   }
 
   ingress {
-    cidr_blocks = ["96.237.247.97/32"]
+    cidr_blocks = ["cidr-block"]
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -38,7 +38,7 @@ resource "aws_security_group" "opsview-sg" {
   }
 
   ingress {
-    cidr_blocks = ["96.237.247.97/32"]
+    cidr_blocks = ["cidr-block"]
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
@@ -97,7 +97,7 @@ resource "aws_db_instance" "opsviewdb" {
 
 resource "aws_key_pair" "opsview-kp" {
   key_name   = "opsview-kp"
-  public_key = "${file("/home/mkhalid/.ssh/id_rsa.pub")}"
+  public_key = "${file("/path/to/file/id_rsa.pub")}"
 }
 
 resource "aws_instance" "opsview_orch" {
